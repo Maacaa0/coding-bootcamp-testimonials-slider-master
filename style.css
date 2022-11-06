@@ -98,6 +98,7 @@ button:active {
 #left:hover, #right:hover {
     background-color: lightgrey;
     transition: 100ms ease;
+    z-index: 3;
 }
 
 @media (max-width: 1000px) {
@@ -149,7 +150,23 @@ button:active {
         line-height: 2rem;
     }
 
+    button {
+        left: 39%;
+    }
+
+    #right {
+        left: 51%;
+    }
+
 }
 
+@media (max-width:400px) {
+    button {
+        left: 33%;
+    }
 
+    #right {
+        left: 51%;
+    }
 
+}
