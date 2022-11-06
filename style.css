@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap');
+
+:root {
+    --DarkBlue: hsl(240, 38%, 20%);
+    --GrayishBlue: hsl(240, 18%, 77%);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+
+    font-size: 2rem;
+    font-family: "Inter", sans-serif;
+    font-weight: 300;
+
+    background: url(images/pattern-bg.svg)87% 45% no-repeat, url(images/pattern-curve.svg) left bottom no-repeat,
+    url(images/pattern-quotes.svg) 22% 32% no-repeat;
+
+}
+
+main {
+    display: flex;
+}
+
+.person {
+    max-width: 40rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: -4.5rem;
+    z-index: 5;
+    margin-top: 3.3rem;
+}
+
+.person-text {
+    line-height: 2.75rem;
+    color: var(--DarkBlue);
+}
+
+.name {
+    font-size: 1.3rem;
+    letter-spacing: -0.3px;
+}
+
+.job {
+    font-size: 1.25rem;
+    color: var(--GrayishBlue);
+    font-weight: 500;
+}
+
+.img-container {
+    display: flex;
+    position: relative;
+    box-shadow: 0px 13px 14px -12px rgb(0 0 0 / 60%);
+    background: transparent;
+    z-index: 0;
+    border-radius: 1rem;
+}
+
+.photo {
+    width: 100%;
+    border-radius: .2rem;
+}
+
+button {
+    width: 3.5rem;
+    height: 3.5rem;
+    border: none;
+    position: absolute;
+    bottom: -1.5rem;
+    left: 4rem;
+    box-shadow: 0px 13px 14px -12px rgb(0 0 0 / 60%);
+    cursor: pointer;
+}
+
+button:active {
+    transform: scale(.97);
+}
+
+#left {
+    background:white url(images/icon-prev.svg) center no-repeat;
+    border-radius: 2rem 0 0 2rem;
+}
+
+#right {
+    background:white url(images/icon-next.svg) center no-repeat;
+    left: 7.5rem;
+    border-radius: 0 2rem 2rem 0;
+}
+
+
+#left:hover, #right:hover {
+    background-color: lightgrey;
+    transition: 100ms ease;
+}
+
+@media (max-width: 1000px) {
+
+    body {
+        background: url(images/pattern-bg.svg)center 5% no-repeat, url(images/pattern-curve.svg) left bottom no-repeat, url(images/pattern-quotes.svg) center 65% no-repeat;
+        background-size: 100%, auto, auto;
+    }
+        
+    main {
+        flex-direction: column-reverse;
+        margin: 2rem 0;
+    }
+
+    .img-container {
+        width: 80%;
+        align-self: center;
+    }
+
+    button {
+        bottom: -1.5rem;
+        left: 40%;
+    }
+
+    #right {
+        left: 50%;
+    }
+
+    .person {
+        align-items: center;
+        margin-right: 0;
+    }
+
+    .person-text {
+        text-align: center;
+    }
+
+    .column {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        gap: .2rem;
+    }
+}
+
+@media (max-width:600px) {
+    .person-text {
+        font-size: 75%;
+        line-height: 2rem;
+    }
+
+}
+
+
+
