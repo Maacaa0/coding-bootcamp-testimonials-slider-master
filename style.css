@@ -109,7 +109,7 @@ button {
         
     main {
         flex-direction: column-reverse;
-        margin: 2rem 0;
+        align-items: flex-start;
     }
 
     .img-container {
