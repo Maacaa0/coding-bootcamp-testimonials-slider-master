@@ -105,12 +105,13 @@ button {
     body {
         background: url(images/pattern-bg.svg)center 5% no-repeat, url(images/pattern-curve.svg) left bottom no-repeat, url(images/pattern-quotes.svg) center 65% no-repeat;
         background-size: 100%, auto, auto;
-        align-items: flex-start
+        align-items: flex-start;
+        overflow-x: hidden;
     }
         
     main {
         flex-direction: column-reverse;
-        margin-top: 1rem;
+        margin-top: .5rem;
     }
 
     .img-container {
