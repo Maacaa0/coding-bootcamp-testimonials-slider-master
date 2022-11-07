@@ -28,10 +28,10 @@ const rightBtn = document.getElementById("right");
 let num = 0;
 
 function changeInfo() {
-    aboutText.textContent = textObj.text[Math.abs(num%2)],
+        aboutText.textContent = textObj.text[Math.abs(num%2)],
         personsName.textContent = textObj.name[Math.abs(num%2)],
         job.textContent = textObj.job[Math.abs(num%2)],
-        photo.src = `images/${Math.abs(num%2)}.jpg`    
+        photo.src = `images/${Math.abs(num%2)}.jpg` 
 }
 
 leftBtn.addEventListener("click", function() {
@@ -41,14 +41,14 @@ leftBtn.addEventListener("click", function() {
         
 })
 
-rightBtn.addEventListener("click", function() {
-            num++,
-            changeInfo(),
-            animations()
+rightBtn.addEventListener("click", function rightSwipe() {
+        num++,
+        changeInfo(),
+        animations()
 })
 
 function updateInfo() {
-    aboutText.textContent = textObj.text[0],
+        aboutText.textContent = textObj.text[0],
         personsName.textContent = textObj.name[0],
         job.textContent = textObj.job[0],
         photo.src = `images/${0}.jpg`
@@ -57,18 +57,41 @@ function updateInfo() {
 function animations() {
     photo.animate([
         { opacity: 0.3},
-        { transform: "translateY(15px)"},
+        { transform: "translateY(10px)"},
         { opacity: 1}
         ],{duration: 200}),
 
     aboutText.animate([
         { opacity: 0.3},
-        { transform: "translateX(10px)"},
+        { transform: "translateX(7px)"},
         { opacity: 1}
         ], {duration: 100}),
 
     job.parentElement.animate([
-            { opacity: 0},
-            { opacity: 1}
-            ], {duration: 300})
+        { opacity: 0},
+        { opacity: 1}
+        ], {duration: 300})
 }
+
+
+//SWIPE ACTION 
+let touchStart = 0;
+let touchEnd = 0;
+
+photo.addEventListener("touchstart", (e) => {
+        e.preventDefault(),
+        touchStart = e.changedTouches[0].pageX;
+    });
+
+    photo.addEventListener("touchend", (x) => {
+        touchEnd = x.changedTouches[0].pageX;
+        if (touchEnd > touchStart && touchEnd - touchStart > 120) {
+                num--,
+                changeInfo(),
+                animations()
+        } else if (touchEnd < touchStart && touchStart - touchEnd > 120) {
+                num++,
+                changeInfo(),
+                animations()
+        }
+    });
