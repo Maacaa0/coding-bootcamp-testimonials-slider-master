@@ -79,7 +79,6 @@ let touchStart = 0;
 let touchEnd = 0;
 
 photo.addEventListener("touchstart", (e) => {
-        e.preventDefault(),
         touchStart = e.changedTouches[0].pageX;
     });
 
